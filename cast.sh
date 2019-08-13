@@ -34,14 +34,23 @@ if [ "x$ARG" = "xstop" ]
 fi
 
 VIDEO=`echo $ARG | sed 's/.*v=\(.*\)/\1/'`
+LIST=`echo $ARG | sed 's/.*list=\(.*\)/\1/'`
+if [[ $ARG == *"list="* ]]; then
+	# echo v=$VIDEO list=$LIST;
+        $CURL -H "Content-Type: application/json" http://$DYONTV:$PORT/apps/YouTube -X POST -d v=$VIDEO -d list=$LIST
+fi
+
 
 if [[ $ARG == *"v="* ]]; then
-	$CURL -H "Content-Type: application/json" http://$DYONTV:$PORT/apps/YouTube -X POST -d v=$VIDEO 
+	# echo v=$VIDEO;
+	$CURL -H "Content-Type: application/json" http://$DYONTV:$PORT/apps/YouTube -X POST -d v=$VIDEO
+
 else
         #Ok v= not found. Try to get the Videourl
 	LOCATION=`$CURL -I $ARG | grep -i location | sed 's/location://'` 
 	URL=`echo $LOCATION |  cut -d'&' -f1`
 	VIDEO=`echo $URL | sed 's/.*v=\(.*\)/\1/'`
+	# echo $URL;
         $CURL -H "Content-Type: application/json" http://$DYONTV:$PORT/apps/YouTube -X POST -d v=$VIDEO
 
 	echo $0 $URL $DYONTV
