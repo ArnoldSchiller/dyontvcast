@@ -11,4 +11,6 @@ Im Prinzip müsste das Script auch mit anderen DIAL-fähigen Smart-TV funktionie
 
 Die IP-Adresse seines Fernsehers kann man ja im Menü nachschauen. Statt dem zweiten Argument kann man sie ja auch fix eintragen, wenn sie sich im eigenen LAN/WLAN nicht ändert. 
 
-Aufruf ist dann nur noch cast.sh YOUTUBEURL 
+Aufruf ist dann nur noch cast.sh YOUTUBEURL
+
+finddyon.py ist ein kleines Pythonskript um den DYON TV im Netz zu finden. Die IP Adresse steht in LOCATION 
