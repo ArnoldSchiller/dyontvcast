@@ -1,0 +1,18 @@
+Die Screencast App auf dem Dyon ist nicht sehr gesprächig.
+
+Der Support nannte es Mirrorcast und das es mit den Geräten im selben WLAN, die das unterstützen funktioniert.
+
+Vermutlich ist https://de.wikipedia.org/wiki/Miracast mit "Mirrorcast" gemeint.
+
+Die Aussage "selbes WLAN" ist insofern falsch, dass es wenn überhaupt nur p2p funktioniert. Nicht alle WLAN-Karten in manchen Laptops unterstützen diesen Modus. Tatsächlich befindet sich in meinem Haushalt genau ein einziger Rechner, der das kann. Damit ist der Spass aber noch nicht am Ende. Nicht nur die Hardware muss wifi-direct unterstützen - im Prinzip können das viele Smartphones - sondern auch die Software.
+
+Wie der Teufel es so will habe ich zwar 6 Smartphones griffbereit, aber die einen sind alt und sind Androidsoftwareversion unter 4.2 und die anderen sind zu neu und haben Android 6.0 oder höher. Miracast wurde nur von 4.2 bis 6.0 unterstützt. Ein 6.0 hätte ich sogar da, aber das mit bis 6.0 ist wohl so zu verstehen vor 6.0 mit 6.0 funktioniert es nicht. Mit 7.1.1 zum Beispiel bekommt man das Wifi-Direct mit "Screencast" zu sehen, aber die Verbindung scheitert. 
+
+Miracast ist eine sau blöde Lösung, das kenne ich auch von manchen Beamern. In der Regel will man ja zum Beispiel etwas aus dem Internet auf dem Bildschirm (Beamer oder Fernseher) bringen. Nun hat man auf dem Gerät zumeist nur einen WLAN Adapter und einen Ethernetadapter haben die Smartphones sowieso nicht. GSM Empfang mag ja da sein, sodass das mit dem Smartphone noch hinhauen könnte, aber dann muss man sich dennoch aus dem vorhanden WLAN ausbuchen und mit dem Telefondatentarif auf den Bildschirm streamen.Bei einem Laptop selbst wenn es p2p beherrscht dann es zusätzlich an das Ethernet klemmen - soweit es denn noch Ethernet hat, der Trend geht dahin auf die Buchse zu verzichten. 
+
+Jetzt könnte man sich für ein paar Euro einen zweiten WLAN Adapter gönnen um Miracast machen zu können, das aber ist dann für jeden Nutzer notwendig. Da ist es dann einfacher man hängt an das Bildschirmgerät ein Chromecast oder Fire-TV-Stick über HDMI - sprich die Screencastapp auf dem Dyon ist so eigentlich für die Katz. 
+
+Miracast wird wohl sterben und ich weiß nicht, ob es Sinn macht sich damit noch auseinanderzusetzen.
+Vielleicht probiere ich auf dem einem Rechner noch 
+https://github.com/albfan/miraclecast  
+ob es denn überhaupt ginge in den 3 Wochen den ich den Fernseher habe, habe ich zumindest Screencast nicht zur Zusammenarbeit bewegen können.
