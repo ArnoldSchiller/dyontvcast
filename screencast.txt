@@ -6,18 +6,21 @@ Vermutlich ist https://de.wikipedia.org/wiki/Miracast mit "Mirrorcast" gemeint.
 
 Die Aussage "selbes WLAN" ist insofern falsch, dass es wenn überhaupt nur p2p
 funktioniert. Nicht alle WLAN-Karten in manchen Laptops unterstützen diesen
-Modus. Damit ist der Spass aber noch nicht am Ende. Nicht nur die Hardware muss wifi-direct unterstützen - im Prinzip können das viele Smartphones - 
-sondern auch die Software.
+Modus. Damit ist der Spass aber noch nicht am Ende. 
+Nicht nur die Hardware muss wifi-direct unterstützen - im Prinzip können das viele Smartphones - sondern auch die Software.
 
 Wie der Teufel es so will habe ich zwar 6 Smartphones griffbereit, 
 aber die einen sind alt und sind Androidsoftwareversion unter 4.2 und 
 die anderen sind zu neu und haben Android 6.0 oder höher. 
 Miracast wurde nur von 4.2 bis 6.0 unterstützt. 
-Ein 6.0 hätte ich sogar da, aber das mit bis 6.0 ist wohl so zu verstehen vor 6.0 mit 6.0 funktioniert es nicht. Mit 7.1.1 zum Beispiel bekommt man das Wifi-Direct mit "Screencast" zu sehen, aber die Verbindung scheitert. 
+Ein 6.0 hätte ich sogar da, aber das mit bis 6.0 ist wohl so zu verstehen vor 6.0 
+mit 6.0 funktioniert es nicht. Mit 7.1.1 zum Beispiel bekommt man das Wifi-Direct 
+mit "Screencast" zu sehen, aber die Verbindung scheitert. 
 
 Vielleicht probiere ich auf einem Rechner noch 
 https://github.com/albfan/miraclecast  
-ob es denn überhaupt ginge in den 3 Wochen den ich den Fernseher habe, habe ich zumindest Screencast nicht zur Zusammenarbeit bewegen können.
+ob es denn überhaupt ginge in den 3 Wochen den ich den Fernseher habe, 
+habe ich zumindest Screencast nicht zur Zusammenarbeit bewegen können.
 
 Miraclecast hat in res Skripten, die testen ob die Hardware das kann.
 Nach ausführen von
@@ -48,4 +51,18 @@ Wi-Fi Direct- in 4 Stufen .
 p2p-scan von miraclecast zeigt dass das Gerät erkannt wird.
 
 aber https://www.golem.de/news/wifi-display-miracast-unter-linux-ist-schrecklich-1402-104315.html das wird wohl nichts mit der im Rechner verbauten rtl8192se nach dem Artikel funktioniert es wenn überhaupt mit einem  Intel 7260-WLAN-Chip
+Unter Ubuntu gibt es:
+https://code.launchpad.net/~thopiekar/miracle/miraclecast-albfan
+"Make miracle-wifid conexists with other network tools"
 
+Also selbst wenn ich es zum Laufen bekomme, benutzerfreundlich ist es nicht. 
+Zumindest ist mit Ubuntupatch die Netzwerkverbindung nicht weg. Sodaß Hoffnung besteht
+den intendierten Zweck sowas wie zattoo.de auf den Fernseher Streamen zu können
+zu erreichen.
+
+Sowas wie:
+/usr/bin/gst-launch-1.0 -v udpsrc port= caps="application/x-rtp, media=video" ! rtpjitterbuffer latency=100 ! rtpmp2tdepay ! tsdemux ! queue max-size-buffers=0 max-size-time=0 ! h264parse ! avdec_h264 ! videoconvert ! autovideosink
+
+ist jetzt erstmal auf die Schnauze gefallen. Wundert mich der Port fählt und der Connect ist mir noch nicht gelungen. Screencast App von Dyon verweigert immer noch die Zusammenarbeit.
+
+ 
