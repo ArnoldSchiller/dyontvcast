@@ -65,4 +65,6 @@ Sowas wie:
 
 ist jetzt erstmal auf die Schnauze gefallen. Wundert mich der Port fählt und der Connect ist mir noch nicht gelungen. Screencast App von Dyon verweigert immer noch die Zusammenarbeit.
 
- 
+Auf das hier gestossen
+https://blogs.gnome.org/benzea/2019/01/30/gnome-screencast/ 
+sollte ich als nächstes testen.
