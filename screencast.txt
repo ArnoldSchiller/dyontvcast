@@ -68,3 +68,156 @@ ist jetzt erstmal auf die Schnauze gefallen. Wundert mich der Port fählt und de
 Auf das hier gestossen
 https://blogs.gnome.org/benzea/2019/01/30/gnome-screencast/ 
 sollte ich als nächstes testen.
+Braucht mindestens NetworkManager 1.15 ist in einem PPA für Ubuntu vorhanden
+sudo add-apt-repository ppa:miurahr/wifi-p2p
+
+wpa_cli
+p2p_find DYONMACADDRESSE
+p2p_connect DYONMAC pin
+#PIN
+p2p_connect DYONMAC #PIN
+p3p_peer DYONMAC
+
+pri_dev_type=7-0050F204-1
+device_name=Screencast
+manufacturer=KONKA
+model_name=Screencast
+model_number=5.0.0.0
+serial_number=MSD6A801
+config_methods=0x188
+dev_capab=0x25
+group_capab=0x0
+level=-34
+sec_dev_type=7-00173520-2
+sec_dev_type=7-00173520-2
+sec_dev_type=7-00173520-2
+sec_dev_type=7-00173520-2
+sec_dev_type=7-00173520-2
+persistent=2
+age=10
+listen_freq=2412
+wps_method=not-ready
+interface_addr=00:00:00:00:00:00
+member_in_go_dev=00:00:00:00:00:00
+member_in_go_iface=00:00:00:00:00:00
+go_neg_req_sent=0
+go_state=unknown
+dialog_token=2
+intended_addr=00:00:00:00:00:00
+country=__
+oper_freq=0
+req_config_methods=0x0
+flags=[REPORTED][PD_PEER_DISPLAY]
+status=0
+invitation_reqs=0
+wfd_subelems=000006011100000000
+
+Die Ursprungshardware des Dyon SmartTV scheint also ein abgewandelter KKTV 4A40 von www.konka.com zu sein.
+
+p2p_connect DYONMAC pbc
+
+ist etwas erfolgreicher. 
+
+<3>CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+<3>CTRL-EVENT-EAP-STARTED EAP authentication started
+<3>CTRL-EVENT-EAP-STATUS status='started' parameter=''
+<3>CTRL-EVENT-EAP-PROPOSED-METHOD vendor=14122 method=1
+<3>CTRL-EVENT-EAP-STATUS status='accept proposed method' parameter='WSC'
+<3>CTRL-EVENT-EAP-METHOD EAP vendor 14122 method 1 (WSC) selected
+<3>WPS-CRED-RECEIVED 
+<3>WPS-SUCCESS 
+<3>P2P-GROUP-FORMATION-SUCCESS 
+<3>CTRL-EVENT-EAP-STATUS status='completion' parameter='failure'
+<3>CTRL-EVENT-EAP-FAILURE EAP authentication failed
+<3>CTRL-EVENT-DISCONNECTED bssid=ANDEREMAC reason=3 locally_generated=1
+<3>SME: Trying to authenticate with ANDEREMAC (SSID='DIRECT-fI' freq=2412 MHz)
+<3>CTRL-EVENT-REGDOM-CHANGE init=CORE type=WORLD
+<3>CTRL-EVENT-REGDOM-CHANGE init=USER type=COUNTRY alpha2=DE
+<3>Trying to associate with ANDEREMAC (SSID='DIRECT-fI' freq=2412 MHz)
+<3>Associated with ANDEREMAC
+<3>CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+<3>WPA: Key negotiation completed with ANDEREMAC [PTK=CCMP GTK=CCMP]
+<3>CTRL-EVENT-CONNECTED - Connection to ANDEREMAC completed [id=2 id_str=]
+<3>P2P-GROUP-STARTED wlan0 client ssid="DIRECT-fI" freq=2412 psk=IMMERANDERERPSK8036a26f go_dev_addr=DYONMAC [PERSISTENT]
+<3>CTRL-EVENT-DISCONNECTED bssid=ANDEREMAC reason=2
+<3>CTRL-EVENT-REGDOM-CHANGE init=CORE type=WORLD
+<3>CTRL-EVENT-REGDOM-CHANGE init=USER type=COUNTRY alpha2=DE
+<3>P2P-GROUP-REMOVED wlan0 client reason=IDLE
+<3>CTRL-EVENT-SCAN-STARTED 
+<3>CTRL-EVENT-SCAN-RESULTS 
+
+Danach antwortet auch ein 
+p2p_serv_disc_req DYONMAC wifi-display [source][pri-sink] 2,3,4,5
+
+Ok der NetworkManager 1.15 hat zwar wifi-p2p mag aber nicht.
+Probiere ich es mal so. Eventuell muss die Macadresse p2p0 angepasst werden:
+ iw wlan0 interface add p2p0 type managed
+nmcli connection edit type wifi-p2p con-name DYON
+set wifi-p2p.peer DYON_MAC_ADDR # you can get that from looking at wpa_supplicant logs
+set wifi-p2p.wps-method pbc
+set connection.autoconnect no
+save 
+quit
+nmcli con up DYON
+Fehler: Aktivierung der Verbindung ist gescheitert: GRRR - warum das jetzt.
+
+Neueste Version von wpa_supplicant holen
+
+wget http://ftp.de.debian.org/debian/pool/main/n/ncurses/libtinfo6_6.1+20190803-1_amd64.deb
+wget http://ftp.de.debian.org/debian/pool/main/libn/libnl3/libnl-3-200_3.4.0-1+b1_amd64.deb
+wget http://ftp.de.debian.org/debian/pool/main/libn/libnl3/libnl-route-3-200_3.4.0-1+b1_amd64.deb
+wget http://ftp.de.debian.org/debian/pool/main/r/readline/libreadline8_8.0-3_amd64.deb
+wget http://ftp.de.debian.org/debian/pool/main/w/wpa/wpasupplicant_2.9-1_amd64.deb
+
+und installiert.
+
+nmcli con up DYON
+
+<3>WPS-AP-AVAILABLE-PBC 
+<3>SME: Trying to authenticate with ANDEREMAC (SSID='DIRECT-4C' freq=2462 MHz)
+<3>Trying to associate with ANDEREMAC (SSID='DIRECT-4C' freq=2462 MHz)
+<3>Associated with ANDEREMAC
+<3>CTRL-EVENT-EAP-STARTED EAP authentication started
+<3>CTRL-EVENT-EAP-STATUS status='started' parameter=''
+<3>CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+<3>CTRL-EVENT-EAP-PROPOSED-METHOD vendor=14122 method=1
+<3>CTRL-EVENT-EAP-STATUS status='accept proposed method' parameter='WSC'
+<3>CTRL-EVENT-EAP-METHOD EAP vendor 14122 method 1 (WSC) selected
+<3>WPS-CRED-RECEIVED 
+<3>WPS-SUCCESS 
+<3>P2P-GROUP-FORMATION-SUCCESS 
+<3>CTRL-EVENT-EAP-STATUS status='completion' parameter='failure'
+<3>CTRL-EVENT-EAP-FAILURE EAP authentication failed
+<3>CTRL-EVENT-DISCONNECTED bssid=ANDEREMAC reason=3 locally_generated=1
+<3>CTRL-EVENT-REGDOM-CHANGE init=CORE type=WORLD
+<3>CTRL-EVENT-REGDOM-CHANGE init=USER type=COUNTRY alpha2=DE
+<3>SME: Trying to authenticate with ANDEREMAC (SSID='DIRECT-4C' freq=2462 MHz)
+<3>Trying to associate with ANDEREMAC (SSID='DIRECT-4C' freq=2462 MHz)
+<3>Associated with ANDEREMAC
+<3>CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+<3>WPA: Key negotiation completed with ANDEREMAC [PTK=CCMP GTK=CCMP]
+<3>CTRL-EVENT-CONNECTED - Connection to ANDEREMAC completed [id=11 id_str=]
+<3>P2P-GROUP-STARTED wlan0 client ssid="DIRECT-4C" freq=2462 psk=bcc009f2d551b709cdf078006cf661dad90d8563bb548a43535f7a6f2645834f go_dev_addr=DYONMAC [PERSISTENT]
+<3>CTRL-EVENT-DISCONNECTED bssid=ANDEREMAC reason=2
+<3>CTRL-EVENT-REGDOM-CHANGE init=CORE type=WORLD
+<3>CTRL-EVENT-REGDOM-CHANGE init=USER type=COUNTRY alpha2=DE
+<3>CTRL-EVENT-SCAN-STARTED 
+<3>CTRL-EVENT-SCAN-RESULTS 
+<3>WPS-AP-AVAILABLE-PBC 
+<3>SME: Trying to authenticate with ANDEREMAC (SSID='DIRECT-4C' freq=2462 MHz)
+<3>CTRL-EVENT-SCAN-STARTED 
+<3>CTRL-EVENT-SCAN-RESULTS 
+<3>WPS-AP-AVAILABLE-PBC 
+<3>CTRL-EVENT-NETWORK-NOT-FOUND 
+<3>CTRL-EVENT-SCAN-STARTED 
+<3>CTRL-EVENT-SCAN-RESULTS 
+<3>WPS-AP-AVAILABLE 
+<3>CTRL-EVENT-SCAN-STARTED 
+<3>CTRL-EVENT-SCAN-RESULTS 
+<3>WPS-AP-AVAILABLE 
+<3>CTRL-EVENT-NETWORK-NOT-FOUND 
+<3>P2P-GROUP-REMOVED wlan0 client reason=IDLE
+ 
+Neuer Versuch mit neuem Wlan-Treiber von https://backports.wiki.kernel.org/index.php/Releases
+
+
