@@ -220,4 +220,310 @@ nmcli con up DYON
  
 Neuer Versuch mit neuem Wlan-Treiber von https://backports.wiki.kernel.org/index.php/Releases
 
+wpa_cli p2p_connect DYONMAC pbc  role=GO freq=2412 ht40=0 peer_dev=DYONMAC peer_iface=ANDEREDYONMAC wps_method=PBC
+
+Eine Konfigurationsdatei in  /etc/NetworkManager/system-connections/DYON.nmconnection
+
+[connection]
+id=DYON
+uuid=12345UIDVOMNETWORKMANAGERVERGEBEN
+type=wifi-p2p
+autoconnect=false
+permissions=
+
+[wifi-p2p]
+peer=DYONMAC
+wps-method=4
+
+[ipv4]
+dns-search=
+method=shared
+
+[ipv6]
+addr-gen-mode=stable-privacy
+dns-search=
+method=auto
+
+führt bei einem nmcli con up DYON zu Verbindungen und jeder Versuch hat sich in einer wpa_supplicant.conf mit einem Eintrag jeder Verbindung bemerkbar gemacht, in der Zwischenzeit eine ganz schöne Sammlung
+
+
+network={
+	ssid="DIRECT-GJ"
+	bssid=DYONMAC
+	psk=8197b5f726f2b54e73096a97a56aaeddfa92ee2b7b7f05c38e8b18a8b2abc72f
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-aY"
+	bssid=DYONMAC
+	psk=9189f8ba2d34b16d61404d322ca0b0b22b0e3960babb6ca3b514b9811e140428
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-VL"
+	bssid=DYONMAC
+	psk=0c515318121a12934919fbc39d382b8204af0e382d9fe5a4523860c81fea02e8
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-T8"
+	bssid=DYONMAC
+	psk=638c2b31e3add7d8ee839f245f0fd94682632a7cd6fc7ebbeb93655c2552881f
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-5U"
+	bssid=DYONMAC
+	psk=8ab01587bf211dfb2f5f7e6de232d066e1501594effe990de0af007632b79c77
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-bg"
+	bssid=DYONMAC
+	psk=43f078e60094b37ed408187549e202c8038d62fa6d8837f731211a92880913ae
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-il"
+	bssid=DYONMAC
+	psk=218919486232e33306a4f84827d01953863863fb36f9b2a65fe70d196ba047a5
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-qJ"
+	bssid=DYONMAC
+	psk=72aea937fcccc03203319982b21dc57c4a509b3d93d37ae193fe762c79a77415
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-eQ"
+	bssid=DYONMAC
+	psk=ecf3efb765314653bc8bd72e3250e35afeb273ae542ac448ccb0db2e7901525b
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-9L"
+	bssid=DYONMAC
+	psk=ab5cb94eab695815ca563025b88606b370326f786db727f741c8248e3be04717
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-ZV"
+	bssid=DYONMAC
+	psk=eb7add48294ed27f0826d1f270ef58f295d3d59fc9bae379a3f31b6a84281a7c
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-f8"
+	bssid=DYONMAC
+	psk=65eee32300c9b33d7bc6dcab8c3cdf1877856be498ff7df3807a71729389878a
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-CV"
+	bssid=DYONMAC
+	psk=f8e5e8b7f9f95a781097da5faa467544a5f7d779afd8b2cc30518a465d66de06
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-8A"
+	bssid=DYONMAC
+	psk=79e101b903e754b595f2898d14a4a9c35c90b772c15c1462686b7c6dafe2d8f7
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-6b"
+	bssid=DYONMAC
+	psk=48907025aba93306c6234b19cb5cd28ae46b1465ca1e07660a31a253395abca7
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-nt"
+	bssid=DYONMAC
+	psk=fe86c5ffec186d83c09eed0a14c6df2d062396f018ff4a82b53b21dafff8a09e
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-sE"
+	bssid=DYONMAC
+	psk=f9baca8e2d6e36dddf2e83a893c9edbf1ebf338c82d3330a4d2fc8b443854f42
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-o7"
+	bssid=DYONMAC
+	psk=baa0944e37ea11869b62f0f851673f4c2d7a76505690d8b95a29596af44e6764
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-jv"
+	bssid=DYONMAC
+	psk=58a0e928bfa996d1fc4d3343c8d1f8571ef3d332beb751a0311094cfe4c6d96d
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-90"
+	bssid=DYONMAC
+	psk=aff9283bb4ed6540b646df84b1ff5c297b72acb3ca32182e9273e451023f7162
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-QR"
+	bssid=DYONMAC
+	psk=f1e91ef0739aa20830ec4892bac5b55e5dd73601c3beb5c2206e77570387687b
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-Hf"
+	bssid=DYONMAC
+	psk=a77565c9a999e00a8f0a80f637597a922d1e140dcc5dff6a8ab1246b4cdbabd2
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-3c"
+	bssid=DYONMAC
+	psk=00338b00e7bce1bee62b87779e3105842d86a57791d4c1e49cdc77177f7beb05
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+network={
+	ssid="DIRECT-DG"
+	bssid=DYONMAC
+	psk=a6cd47601174fd58bc9aeed00e9c8d011ac15d94390f5db3e93122c01205baf2
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+	auth_alg=OPEN
+	disabled=2
+}
+
+
+
+Jeder Verbindungsversuch gelingt an sich, denn die Authentifizierung danach war ok. Aber dann geht der Dialog nicht weiter, denn wie auch immer das dann weiter gehen soll letzlich endet es mit
+
+<3>CTRL-EVENT-SCAN-STARTED 
+<3>CTRL-EVENT-SCAN-RESULTS 
+<3>WPS-AP-AVAILABLE-PBC 
+<3>CTRL-EVENT-NETWORK-NOT-FOUND 
+<3>CTRL-EVENT-SCAN-STARTED 
+<3>CTRL-EVENT-SCAN-RESULTS 
+<3>WPS-AP-AVAILABLE 
+<3>CTRL-EVENT-NETWORK-NOT-FOUND 
+
+das geht maximal 90 Sekunden lang so und das wars dann. Ein udhcpd habe ich auf das Interface gesetzt, sodass prinzipiell IP-Adressen daran verteilt werden könnten. Auf das warten die zwei anscheinend aber nicht. Ich weiß einfach nicht, was der DYON von mir hören will. 
+
 
