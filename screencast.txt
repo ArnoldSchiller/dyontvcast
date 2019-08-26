@@ -4,6 +4,63 @@ Der Support nannte es Mirrorcast und das es mit den Geräten im selben WLAN, die
 
 Vermutlich ist https://de.wikipedia.org/wiki/Miracast mit "Mirrorcast" gemeint.
 
+Mit dem NetworkManager 1.15 aufwärts komme ich bis zu einem schwarzen Bildschirm:
+
+Screencast.nmconnection wurde von gnome-network-displays (https://blogs.gnome.org/benzea/2019/01/30/gnome-screencast/  https://github.com/benzea/gnome-network-displays ) angelegt
+
+[connection]
+id=Screencast
+uuid=VONNETWORKMANAGERVERGEBEN
+type=wifi
+autoconnect=false
+permissions=
+timestamp=1566376126
+
+[wifi]
+hidden=true
+mac-address-blacklist=
+mode=adhoc
+ssid=Screencast
+
+[ipv4]
+dns-search=
+method=auto
+
+[ipv6]
+addr-gen-mode=stable-privacy
+dns-search=
+ip6-privacy=0
+method=auto
+
+Davor hatte ich eine DYON.nmconnection angelegt /etc/NetworkManager/system-connections
+nmcli connection edit type wifi-p2p con-name DYON
+set wifi-p2p.peer DYON_MAC_ADDR 
+
+[connection]
+id=DYON
+uuid=UIDVONNETWORMANAGERVERGEBEN
+type=wifi-p2p
+autoconnect=false
+permissions=
+
+[wifi-p2p]
+peer=DYONMACADDRESSE
+wps-method=4
+
+[ipv4]
+dhcp-client-id=MAXI_P2P
+method=auto
+
+[ipv6]
+addr-gen-mode=stable-privacy
+dns-search=
+method=auto
+
+Damit wird der Bildschirm kurz schwarz und gnome-network-displays bricht mit Fehler ab. Es fehlt also noch was.
+
+
+Ab hier ist der Text nur die Vorgeschichte bis dahin. 
+
 Die Aussage "selbes WLAN" ist insofern falsch, dass es wenn überhaupt nur p2p
 funktioniert. Nicht alle WLAN-Karten in manchen Laptops unterstützen diesen
 Modus. Damit ist der Spass aber noch nicht am Ende. 
