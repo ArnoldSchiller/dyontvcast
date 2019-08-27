@@ -1,4 +1,6 @@
 # Port open on Dyon TV
-7681   # seems tftp
+7681   # seems tftp LAN and WLAN open
+10100  # open with LAN-Interface
 56789  # DIAL apps/YouTube and apps/Netflix
 56790  # mcast dd.xml 
+
