@@ -58,6 +58,11 @@ method=auto
 
 Damit wird der Bildschirm kurz schwarz und gnome-network-displays bricht mit Fehler ab. Es fehlt also noch was.
 
+Es waren soviele Vor- und Rückschritte, das es jetzt möglicherweise nur noch daran scheitert:
+ IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+soweit ich weiss, macht wifi-direct kein IPV6, darauf wartet aber der Network-Manager jetzt.
+
+
 
 Ab hier ist der Text nur die Vorgeschichte bis dahin. 
 
