@@ -59,8 +59,12 @@ method=auto
 Damit wird der Bildschirm kurz schwarz und gnome-network-displays bricht mit Fehler ab. Es fehlt also noch was.
 
 Es waren soviele Vor- und Rückschritte, das es jetzt möglicherweise nur noch daran scheitert:
- IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
-soweit ich weiss, macht wifi-direct kein IPV6, darauf wartet aber der Network-Manager jetzt.
+
+Am 28.8.2019 kam bei einem neuen Versuch dann das 
+NetworkManager[21480] general protection ip:55cedacb50d5 sp:7ffdb565eec0 error:0 in NetworkManager[55cedab69000+289000]
+
+und dadurch wurde die Screencast App auf dem DYON in einem Zustand hinterlassen, dass man meinen könnte der Fernseher wäre ausgeschaltet. In wirklichkeit ist er voll da. Er sieht nur ausgeschaltet aus. Wenn das mit den ganzen anderen Fernsehern in der Nachbarschaft auch geht, und die eine Alexa dran hängen haben, dann ist das die perfekte Abhörwanze. Zumindest ein Brava und ein was auch immer TVSH ist, melden sich her Tag und Nacht mit ihrer wifi-direct-Mac und sagen die ganze Zeit "Nimm mich, nimm mich" nur was will ich mit dem Bildschirmstream in irgendeiner 
+Nachbarwohnung möglicherweise gegenüber auf der anderen Strassenseite? 
 
 
 
